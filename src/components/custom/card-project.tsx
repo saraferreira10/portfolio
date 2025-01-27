@@ -20,7 +20,7 @@ export default function CardProject({
         <Card.Description>
           <Flex gap="1rem">
             {stack.map((s) => (
-              <Tooltip content={s.tooltip}>
+              <Tooltip content={s.tooltip} key={s.tooltip}>
                 <Badge>{s.element}</Badge>
               </Tooltip>
             ))}

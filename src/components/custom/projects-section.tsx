@@ -162,7 +162,7 @@ export default function ProjectSection() {
         >
           <Link
             fontSize="sm"
-            href="https://github.com/saraferreira10/compasscar"
+            href="https://github.com/saraferreira10/portfolio"
           >
             Repositório
           </Link>

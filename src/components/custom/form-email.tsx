@@ -14,24 +14,30 @@ import { contactEmail } from "@/lib/email-action";
 import { Toaster, toaster } from "../ui/toaster";
 import { useActionState, useEffect } from "react";
 
-const initialState = {
-  status: {
-    errorsValidation: {
-      name: [],
-      email: [],
-      subject: [],
-      text: [],
-    },
-    errorEmail: null,
-    success: false,
+interface StateType {
+  errorsValidation: {
+    name?: string[] | null;
+    email?: string[] | null;
+    subject?: string[] | null;
+    text?: string[] | null;
+  } | null;
+  errorEmail: { name: string; message: string; statusCode: number } | null;
+  success: boolean | null;
+}
+
+const initialState: StateType = {
+  errorsValidation: {
+    name: null,
+    email: null,
+    subject: null,
+    text: null,
   },
+  errorEmail: null,
+  success: null,
 };
 
 export default function FormEmail() {
-  const [state, formAction, pending] = useActionState(
-    contactEmail,
-    initialState
-  );
+  const [state, formAction] = useActionState(contactEmail, initialState);
 
   function showErrorToast() {
     if (
@@ -121,7 +127,7 @@ export default function FormEmail() {
 
           <Box width="100%" display="flex" gap="2rem">
             <Button type="submit">Enviar</Button>
-            <Button variant="outline">Limpar</Button>
+            <Button variant="outline" type="reset">Limpar</Button>
           </Box>
         </VStack>
       </Fieldset.Root>
