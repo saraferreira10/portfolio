@@ -21,9 +21,10 @@ export default function AboutSection() {
       >
         <Box>
           <Image
-            src="/images/image-profile.png"
+            src="/images/profile.jpeg"
             objectFit="cover"
             maxW="200px"
+            rounded="full"
           />
         </Box>
         <Box>
